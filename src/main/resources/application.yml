@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  redis:
+    host: 192.168.1.12
+    port: 6379
   cache:
     type: redis
     redis:
@@ -9,9 +12,10 @@ spring:
       cache-null-values: true
 
 
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    url: jdbc:mysql://192.168.1.12:3306/test?useSSL=false
     username: springbootuser
     password: Messi$001
     hikari:
