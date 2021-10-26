@@ -16,7 +16,6 @@ import java.io.Serializable;
 public class Employee implements Serializable {
 
     @Id
-    @GeneratedValue
     private int id;
     private String name;
 
