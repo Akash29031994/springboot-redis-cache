@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class EmployeeController {
+
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -48,6 +49,7 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResouceNotFoundException("Employee not found for this id :: " + employeeId));
         employee.setName(employeeDetails.getName());
+        System.out.println("Employee updating into database:: "+employeeId);
         final Employee updatedEmployee = employeeRepository.save(employee);
         return updatedEmployee;
 
