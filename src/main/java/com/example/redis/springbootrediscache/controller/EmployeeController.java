@@ -62,10 +62,9 @@ public class EmployeeController {
     }
 
     @GetMapping("employees/reload")
+    @Cacheable(value = "employees",key = "1")
     public Employee reloadCache() {
-        System.out.println("Employee fetching from database:: " + 1);
-        return employeeRepository.findById(1).orElseThrow(
-                () -> new ResouceNotFoundException("Employee not found" + 1));
+        return findEmployeeById(1);
 
     }
 }
