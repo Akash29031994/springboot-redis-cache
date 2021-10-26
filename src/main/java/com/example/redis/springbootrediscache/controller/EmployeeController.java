@@ -56,11 +56,16 @@ public class EmployeeController {
     }
 
 
-    @DeleteMapping("employees/{id}")
+    @GetMapping("employees/evict")
     @CacheEvict(value = "employees", allEntries = true)
-    public void deleteEmployee(@PathVariable(value = "id") Integer employeeId) {
-        Employee employee = employeeRepository.findById(employeeId).orElseThrow(
-                () -> new ResouceNotFoundException("Employee not found" + employeeId));
-        employeeRepository.delete(employee);
+    public void evictCache() {
+    }
+
+    @GetMapping("employees/reload")
+    public Employee reloadCache() {
+        System.out.println("Employee fetching from database:: " + 1);
+        return employeeRepository.findById(1).orElseThrow(
+                () -> new ResouceNotFoundException("Employee not found" + 1));
+
     }
 }
