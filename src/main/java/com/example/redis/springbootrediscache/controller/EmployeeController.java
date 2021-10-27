@@ -29,15 +29,19 @@ public class EmployeeController {
         return employeeRepository.save(employee);
     }
 
-    /*@GetMapping("/employees")
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        return ResponseEntity.ok(employeeRepository.findAll());
-    }*/
-
-    @GetMapping("employees")
+    @GetMapping("/employees")
     @Cacheable(value = "employees")
-    public List<Employee> findEmployeeById() {
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    @GetMapping("employees/{employeeId}")
+    @Cacheable(value = "employees",key = "#employeeId")
+    public Employee findEmployeeById(@PathVariable(value = "employeeId") Integer employeeId) {
+        System.out.println("Employee fetching from database:: "+employeeId);
+        return employeeRepository.findById(employeeId).orElseThrow(
+                () -> new ResouceNotFoundException("Employee not found" + employeeId));
+
     }
 
     @PutMapping("employees/{employeeId}")
