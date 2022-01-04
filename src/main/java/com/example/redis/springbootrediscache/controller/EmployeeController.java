@@ -29,9 +29,9 @@ public class EmployeeController {
         return employeeRepository.save(employee);
     }
 
-    @GetMapping("/employees")
-    @Cacheable(value = "employees")
-    public List<Employee> getAllEmployees() {
+    @GetMapping("/employeeall/{name}")
+    @Cacheable(value = "employees", key="#name")
+    public List<Employee> getAllEmployees(@PathVariable("name") String name) {
         return employeeRepository.findAll();
     }
 
