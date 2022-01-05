@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableCaching
-@ComponentScan
 public class SpringbootRedisCacheApplication {
 
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package com.example.redis.springbootrediscache.service;
 
 import com.example.redis.springbootrediscache.dto.request.Range;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachePut;
@@ -52,7 +53,7 @@ public class URLGeneratorService {
         while (sNewUrl.length() < 7) sNewUrl.append('a');
         //save to DB
         pointer++;
-        return "https://tinyurl/" + sNewUrl.reverse().toString();
+        return "https://tinyurl/" + sNewUrl.reverse().toString() + RandomStringUtils.randomAlphanumeric(5);
     }
 
 }
