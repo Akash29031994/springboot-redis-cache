@@ -19,7 +19,7 @@ import javax.annotation.PostConstruct;
 public class SharedRangeService implements SharedCountListener {
 
 
-    private static final String ZOO_SERVER = "192.168.1.9:2181";
+    private static final String ZOO_SERVER = "192.168.1.29:2181";
     private static final String COUNTER_PATH = "/TinyUrl/counter";
     private static final long SPAN = 10;
 

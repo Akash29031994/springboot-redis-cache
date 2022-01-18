@@ -53,7 +53,7 @@ public class URLGeneratorService {
         while (sNewUrl.length() < 7) sNewUrl.append('a');
         //save to DB
         pointer++;
-        return "https://tinyurl/" + sNewUrl.reverse().toString() + RandomStringUtils.randomAlphanumeric(5);
+        return "https://hays.app/" + sNewUrl.reverse().toString() + RandomStringUtils.randomAlphanumeric(5);
     }
 
 }
